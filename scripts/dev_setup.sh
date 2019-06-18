@@ -83,9 +83,11 @@ if which cmake &>/dev/null; then
   echo "CMake is already installed"
 else
 	if [[ "$PACKAGE_MANAGER" == "yum" ]]; then
-		sudo yum install cmake
+		yum install cmake
 	elif [[ "$PACKAGE_MANAGER" == "apt-get" ]]; then
-		sudo apt-get install cmake
+	    apt-get update -y
+		apt-get update
+		apt-get install cmake
 	elif [[ "$PACKAGE_MANAGER" == "brew" ]]; then
 		brew install cmake
 	fi
@@ -96,9 +98,9 @@ if which go &>/dev/null; then
   echo "Go is already installed"
 else
 	if [[ "$PACKAGE_MANAGER" == "yum" ]]; then
-		sudo yum install golang
+		yum install golang
 	elif [[ "$PACKAGE_MANAGER" == "apt-get" ]]; then
-		sudo apt-get install golang
+		apt-get install golang
 	elif [[ "$PACKAGE_MANAGER" == "brew" ]]; then
 		brew install go
 	fi
@@ -109,9 +111,9 @@ if which protoc &>/dev/null; then
   echo "Protobuf is already installed"
 else
 	if [[ "$PACKAGE_MANAGER" == "yum" ]]; then
-		sudo yum install protobuf
+		yum install protobuf
 	elif [[ "$PACKAGE_MANAGER" == "apt-get" ]]; then
-		sudo apt-get install protobuf-compiler
+		apt-get install protobuf-compiler
 	elif [[ "$PACKAGE_MANAGER" == "brew" ]]; then
 		brew install protobuf
 	fi

@@ -119,6 +119,21 @@ else
 	fi
 fi
 
+curl -OL https://github.com/google/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
+# Unzip
+unzip protoc-3.6.1-linux-x86_64.zip -d protoc3
+
+# Move protoc to /usr/local/bin/
+cp -r protoc3/bin/* /usr/local/bin/
+
+# Move protoc3/include to /usr/local/include/
+cp -r protoc3/include/* /usr/local/include/
+
+# Optional: change owner
+#chown $USER /usr/local/bin/protoc
+#chown -R $USER /usr/local/include/google
+
+
 if [[ -f /etc/debian_version ]]; then
 	PROTOC_VERSION=`protoc --version | cut -d" " -f2`
 	REQUIRED_PROTOC_VERSION="3.6.0"

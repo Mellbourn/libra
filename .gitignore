@@ -31,3 +31,6 @@ language/move_ir/
 
 # GDB related
 **/.gdb_history
+
+protoc3
+protoc-*-linux-x86_64.zip
